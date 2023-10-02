@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="border-8 border-dashed mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8"
+    >
+      <div class="mx-auto max-w-2xl">
+        <form
+          action="/"
+          method="POST"
+          class="px-5"
+          onsubmit="return validateForm()"
+        >
+          <div class="space-y-12">
+            <div class="border-b border-gray-900/10 pb-12">
+              <div
+                class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+              >
+                <div class="sm:col-span-3">
+                  <label
+                    for="first-name"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >First name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      autocomplete="given-name"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateFirstName()"
+                    />
+                    <div id="firstNameMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                  <label
+                    for="last-name"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Last name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      autocomplete="family-name"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateLastName()"
+                    />
+                    <div id="lastNameMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-4">
+                  <label
+                    for="email"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Email address</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateEmail()"
+                    />
+                    <div id="emailMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                  <label
+                    for="password"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Password</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validatePassword()"
+                    />
+                    <div id="passwordMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                  <label
+                    for="confirm-password"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Confirm Password</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateConfirmPassword()"
+                    />
+                    <div id="confirmPasswordMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="col-span-full">
+                  <label
+                    for="street-address"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Street address</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      name="street-address"
+                      id="street-address"
+                      autocomplete="street-address"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateStreetAddress()"
+                    />
+                    <div id="streetAddressMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2 sm:col-start-1">
+                  <label
+                    for="city"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >City</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      autocomplete="address-level2"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateCity()"
+                    />
+                    <div id="cityMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label
+                    for="region"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >State / Province</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      name="region"
+                      id="region"
+                      autocomplete="address-level1"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validateRegion()"
+                    />
+                    <div id="regionMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label
+                    for="postal-code"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >ZIP / Postal code</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      name="postal-code"
+                      id="postal-code"
+                      autocomplete="postal-code"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      oninput="validatePostalCode()"
+                    />
+                    <div id="postalCodeMessage" class="text-red-600"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-self-center w-max">
+            <button
+              type="submit"
+              class="text-white rounded-lg bg-opacity-80 w-20 transition duration-500 ease-in-out bg-blue-900 hover:bg-red-600 transform hover:-translate-y-1 hover:scale-110"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
